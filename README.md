@@ -32,7 +32,7 @@ zindex => (int) 100 : css z-index value for the clouds
 The above altitude settings can be confusing. 
 Please reference this awesome ascii art for reference.
 
-
+```
 +-- #sky ---------------------------------------------------+
 |           |                       |                       |
 |           | [distance from top]   |                       |
@@ -44,3 +44,4 @@ Please reference this awesome ascii art for reference.
 |----------------------------- minAltitude -----------------|
 |                                                           |
 |___________________________________________________________|
+```
