@@ -20,7 +20,15 @@ Example JS to get the cloud cannon started
 ```html
 <script type="text/javascript">
   $(function(){
-    var cannon = new CloudCannon({minDuration: 15000, maxDuration: 30000, fireDelay: 2000, maxAltitude: 200, minAltitude: 500, maxClouds: 20});
+    var cannon = new CloudCannon({
+      minDuration: 15000, 
+      maxDuration: 30000, 
+      fireDelay: 2000, 
+      maxAltitude: 200, 
+      minAltitude: 500, 
+      maxClouds: 20
+    });
+    
     cannon.start();
   });
 </script>
