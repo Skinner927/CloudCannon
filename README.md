@@ -1,8 +1,32 @@
 CloudCannon
 ===========
+CloudCannon is a JavasScript class that will shoot clouds across an HTML element for a sweet scrolling cloud effect.
+Height, size, and speed of clouds are random. 
 
-# Config #
+CloudCannon is highly customizable by passing in an object of options. View the Config section for more detail.
 
+## Requirements
+CloudCannon requires JQuery version >= 1.0 (untested with anything less than v1.9.1 so YMMV, but let me know).
+
+Your sky box needs these CSS settings to allow the clouds to render properly:
+```css
+#sky {        
+  overflow: hidden;
+  position: relative;
+}
+```
+
+Example JS to get the cloud cannon started
+```html
+<script type="text/javascript">
+  $(function(){
+    var cannon = new CloudCannon({minDuration: 15000, maxDuration: 30000, fireDelay: 2000, maxAltitude: 200, minAltitude: 500, maxClouds: 20});
+    cannon.start();
+  });
+</script>
+```
+
+## Config
 *Variable* => *(type) defaultValue* : *description*
 
 maxClouds => (int) 10 : max number of clouds to display on screen
@@ -27,7 +51,7 @@ minAltitude => (int) -1 : Distance from top of sky clouds will render. -1 is the
 
 zindex => (int) 100 : css z-index value for the clouds
 
-## Altitude Settings ##
+## Altitude Settings
 
 The above altitude settings can be confusing. 
 Please reference this awesome ascii art for reference.
