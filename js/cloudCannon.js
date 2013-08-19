@@ -68,7 +68,7 @@ function CloudCannon(usr_options) {
         self.options.cloudHeight = this.height;
         
         self.options.maxAltitude = (self.options.maxAltitude < 1) ? 0 : self.options.maxAltitude;
-        self.options.minAltitude = (self.options.minAltitude < 1) ? sky.height() : self.options.minAltitude;
+        self.options.minAltitude = (self.options.minAltitude < 1) ? self.options.sky.height() : self.options.minAltitude;
         
         // Start the cannon
         self.cloudLoop();
