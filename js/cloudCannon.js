@@ -13,7 +13,7 @@ function CloudCannon(usr_options) {
     maxDuration: 30000,         // Max amount of time (ms) for cloud to cross screen
     fireDelay: 1000,            // Time to wait after a cloud leaves the screen before shooting out a new one
     sky: $('#sky'),             // JQuery object that is the sky
-    cloudImg: 'img/cloud.gif',  // Cloud image
+    cloudImg: 'img/cloud-old.gif',  // Cloud image
     direction: 'left',          // 'left' = left to right, 'right' = right to left
     cloudScales: [1, 0.8, 0.5, 0.3],
     minAltitude: -1,           // Distance from top of sky in pixels (-1 means to the floor). If you're setting this number, it should be higher than maxAltitude
