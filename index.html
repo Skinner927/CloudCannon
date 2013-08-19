@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Cloudcannon : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Cloudcannon</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Skinner927/CloudCannon">View on GitHub</a>
+
+          <h1 id="project_title">Cloudcannon</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Skinner927/CloudCannon/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Skinner927/CloudCannon/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="cloudcannon" class="anchor" href="#cloudcannon"><span class="octicon octicon-link"></span></a>CloudCannon</h1>
+
+<p>CloudCannon is a JavasScript class that will shoot clouds across an HTML "sky" element for a sweet scrolling cloud effect.<br>
+Height, size, and speed of clouds are random. </p>
+
+<p>CloudCannon is highly customizable by passing in an object of options. View the <a href="#config">Config</a> section for more detail.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>CloudCannon requires JQuery version &gt;= 1.0 (untested with anything less than v1.9.1 so YMMV, but let me know).</p>
+
+<p>Your sky box needs these CSS settings to allow the clouds to render properly:</p>
+
+<div class="highlight"><pre><span class="nf">#sky</span> <span class="p">{</span>        
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Example JS to get the cloud cannon started:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">cannon</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CloudCannon</span><span class="p">({</span>
+      <span class="nx">minDuration</span><span class="o">:</span> <span class="mi">15000</span><span class="p">,</span> 
+      <span class="nx">maxDuration</span><span class="o">:</span> <span class="mi">30000</span><span class="p">,</span> 
+      <span class="nx">fireDelay</span><span class="o">:</span> <span class="mi">2000</span><span class="p">,</span> 
+      <span class="nx">maxAltitude</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span> 
+      <span class="nx">minAltitude</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> 
+      <span class="nx">maxClouds</span><span class="o">:</span> <span class="mi">20</span>
+    <span class="p">});</span>
+
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<h2>
+<a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Config</h2>
+
+<p><em>Variable</em> =&gt; <em>(type) defaultValue</em> : <em>description</em></p>
+
+<p>maxClouds =&gt; (int) 10 : max number of clouds to display on screen</p>
+
+<p>minDuration =&gt; (int) 10000 : minimum amount of time for a cloud to cross the sky in ms</p>
+
+<p>maxDuration =&gt; (int) 30000 : max amount of time for a cloud to cross the sky in ms</p>
+
+<p>fireDelay =&gt; (int) 1000 : time to wait between creating clouds</p>
+
+<p>sky =&gt; (JQuery Object) $('#sky') : JQuery object which represents the sky (where clouds will be rendered)</p>
+
+<p>cloudImg =&gt; (string) 'img/cloud.gif' : path (relative to html) to cloud gif</p>
+
+<p>direction =&gt; (string) 'left' : direction clouds move 'left' or 'right'</p>
+
+<p>cloudScales =&gt; (float array) [1, 0.8, 0.5, 0.3] : Array to randomly scale clouds</p>
+
+<p>maxAltitude =&gt; (int) -1 : Distance from top of sky clouds will render. -1 is the same as 0 and is the top of the sky.</p>
+
+<p>minAltitude =&gt; (int) -1 : Distance from top of sky clouds will render. -1 is the same as the bottom/floor/ground of the sky.</p>
+
+<p>zindex =&gt; (int) 100 : css z-index value for the clouds</p>
+
+<h2>
+<a name="altitude-settings" class="anchor" href="#altitude-settings"><span class="octicon octicon-link"></span></a>Altitude Settings</h2>
+
+<p>The above altitude settings can be confusing.<br>
+Please reference this awesome ascii art for reference.</p>
+
+<pre><code>+-- #sky ---------------------------------------------------+
+|           |                       |                       |
+|           | [distance from top]   |                       |
+|          \ /                      |                       |
+|---- maxAltitude ------------------+-----------------------|
+|                                   |                       |
+|                                   | [distance from top]   |
+|                                  \ /                      |
+|----------------------------- minAltitude -----------------|
+|                                                           |
+|___________________________________________________________|
+</code></pre>
+
+<h2>
+<a name="special-thanks" class="anchor" href="#special-thanks"><span class="octicon octicon-link"></span></a>Special Thanks!</h2>
+
+<p>Clouds are a modified vector made by Clue: <a href="http://vector.me/browse/830081/simple_clouds">Simple Clouds</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Cloudcannon maintained by <a href="https://github.com/Skinner927">Skinner927</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
