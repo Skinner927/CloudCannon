@@ -3,6 +3,8 @@ CloudCannon
 CloudCannon is a JavasScript class that will shoot clouds across an HTML "sky" element for a sweet scrolling cloud effect.  
 Height, size, and speed of clouds are random. 
 
+View a demo: [DEMO](http://jsfiddle.net/skinner927/23RVw/)
+
 CloudCannon is highly customizable by passing in an object of options. View the [Config](#config) section for more detail.
 
 ## Requirements
