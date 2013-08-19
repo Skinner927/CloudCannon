@@ -1,7 +1,7 @@
 /*
   CloudCannon.js
   Written By: Dennis Skinner
-  Version 1.0
+  Version 1.1
 ---
   The MIT License (MIT)
 
@@ -38,7 +38,7 @@ function CloudCannon(usr_options) {
     maxDuration: 30000,         // Max amount of time (ms) for cloud to cross screen
     fireDelay: 1000,            // Time to wait after a cloud leaves the screen before shooting out a new one
     sky: $('#sky'),             // JQuery object that is the sky
-    cloudImg: 'img/cloud-old.gif',  // Cloud image
+    cloudImg: 'img/cloud.gif',  // Cloud image
     direction: 'left',          // 'left' = left to right, 'right' = right to left
     cloudScales: [1, 0.8, 0.5, 0.3],
     minAltitude: -1,           // Distance from top of sky in pixels (-1 means to the floor). If you're setting this number, it should be higher than maxAltitude
@@ -67,8 +67,8 @@ function CloudCannon(usr_options) {
         self.options.cloudWidth = this.width;
         self.options.cloudHeight = this.height;
         
-        self.options.maxAltitude = (self.options.MaxAltitude < 1) ? 0 : self.options.maxAltitude;
-        self.options.minAltitude = (self.options.MinAltitude < 1) ? sky.height() : self.options.minAltitude;
+        self.options.maxAltitude = (self.options.maxAltitude < 1) ? 0 : self.options.maxAltitude;
+        self.options.minAltitude = (self.options.minAltitude < 1) ? sky.height() : self.options.minAltitude;
         
         // Start the cannon
         self.cloudLoop();
