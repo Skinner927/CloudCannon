@@ -1,0 +1,13 @@
+
+#sky {       
+  /* These are the only styles required */
+  overflow: hidden;
+  position:relative;
+  
+  
+  /* These are strictly for looks */
+  background-color: #2088CD;
+  height: 100%;
+  width: 100%;
+  z-index:99;
+}
